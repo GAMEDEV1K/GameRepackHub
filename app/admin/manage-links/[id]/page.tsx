@@ -109,7 +109,8 @@ export default function ManageLinksPage({ params }: { params: { id: string } }) 
       const addedLink = await addDownloadLink(gameId, {
         name: newLink.name,
         url: newLink.url,
-        type: newLink.type as "google_drive" | "mega" | "torrent" | "direct" | "other"
+        type: newLink.type as "google_drive" | "mega" | "torrent" | "direct" | "other",
+        game_id: gameId
       })
       
       if (addedLink) {

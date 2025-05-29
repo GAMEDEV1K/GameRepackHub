@@ -2,8 +2,8 @@ import { createClient } from '@supabase/supabase-js';
 import { Game, DownloadLink } from '../types/game';
 
 // Configurare pentru Supabase (în producție, aceste valori ar trebui să fie în variabile de mediu)
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://your-supabase-url.supabase.co';
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'your-supabase-anon-key';
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
 // Creăm clientul Supabase
 export const supabase = createClient(supabaseUrl, supabaseKey);

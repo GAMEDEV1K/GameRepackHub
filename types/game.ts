@@ -30,7 +30,7 @@ export type Game = {
 // Data type for download links
 export type DownloadLink = {
   id: number | string;
-  game_id: number | string; // ID of the game associated with the download link
+  game_id?: number | string; // ID of the game associated with the download link
   name: string;
   url: string;
   type: 'direct' | 'torrent' | 'google_drive' | 'mega' | 'other';

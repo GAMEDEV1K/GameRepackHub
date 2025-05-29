@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameRepackHub Preview</title>
+    <style>
+        :root {
+            --game-blue: #0ea5e9;
+            --game-darker: #111827;
+            --game-gray: #1f2937;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #0f172a;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: var(--game-darker);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #2d3748;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--game-blue);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+        }
+        
+        .nav-links a:hover {
+            color: var(--game-blue);
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: var(--game-gray);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            width: 300px;
+        }
+        
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: white;
+            width: 100%;
+            outline: none;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background-color: var(--game-gray);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            background-color: var(--game-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background-color: #0284c7;
+        }
+        
+        .featured-games {
+            margin-bottom: 3rem;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-header h2 {
+            font-size: 1.5rem;
+        }
+        
+        .section-header a {
+            color: var(--game-blue);
+            text-decoration: none;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .game-card {
+            background-color: var(--game-gray);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .game-card-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem 0.5rem 0 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .game-card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+        }
+        
+        .game-card-image .game-title {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            font-size: 1rem;
+            z-index: 1;
+        }
+        
+        .game-card-image .game-version {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            z-index: 1;
+        }
+        
+        .forza-horizon {
+            background-color: #007AFF;
+            background-image: linear-gradient(45deg, #007AFF, #00BFFF);
+        }
+        
+        .gta-v {
+            background-color: #FF5733;
+            background-image: linear-gradient(45deg, #FF5733, #C70039);
+        }
+        
+        .cyberpunk {
+            background-color: #FFD700;
+            background-image: linear-gradient(45deg, #FFD700, #FF00FF);
+        }
+        
+        .elden-ring {
+            background-color: #800080;
+            background-image: linear-gradient(45deg, #800080, #4B0082);
+        }
+        
+        .red-dead {
+            background-color: #8B0000;
+            background-image: linear-gradient(45deg, #8B0000, #A52A2A);
+        }
+        
+        .fifa {
+            background-color: #228B22;
+            background-image: linear-gradient(45deg, #228B22, #32CD32);
+        }
+        
+        .cod {
+            background-color: #696969;
+            background-image: linear-gradient(45deg, #696969, #A9A9A9);
+        }
+        
+        .witcher {
+            background-color: #4682B4;
+            background-image: linear-gradient(45deg, #4682B4, #87CEEB);
+        }
+        
+        .minecraft {
+            background-color: #8B4513;
+            background-image: linear-gradient(45deg, #8B4513, #D2691E);
+        }
+        
+        .assassins-creed {
+            background-color: #191970;
+            background-image: linear-gradient(45deg, #191970, #4169E1);
+        }
+        
+        .game-card-content {
+            padding: 1rem;
+        }
+        
+        .game-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+        
+        .categories {
+            margin-bottom: 3rem;
+        }
+        
+        .category-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        
+        .category-tab {
+            background-color: var(--game-gray);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .category-tab.active {
+            background-color: var(--game-blue);
+        }
+        
+        footer {
+            background-color: var(--game-darker);
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--game-blue);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--game-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">GameRepackHub</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">New Releases</a>
+                <a href="#">Categories</a>
+                <a href="#">Most Popular</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search games...">
+            </div>
+            <div class="user-menu">
+                <a href="#" class="btn">Login</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h1>Pre-installed PC Games, Ready to Play</h1>
+            <p>Download your favorite games, pre-installed and compressed for faster downloads and instant play.</p>
+            <a href="#" class="btn">Browse Games</a>
+        </section>
+        
+        <section class="featured-games">
+            <div class="section-header">
+                <h2>Featured Games</h2>
+                <a href="#">View All</a>
+            </div>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-card-image forza-horizon">
+                        <div class="game-version">v667.430 + ALL DLC</div>
+                        <div class="game-title">Forza Horizon 5</div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3>Forza Horizon 5</h3>
+                        <div class="game-meta">
+                            <span>Racing, Open World</span>
+                            <span>86 GB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-card-image gta-v">
+                        <div class="game-version">v1.0.3411</div>
+                        <div class="game-title">Grand Theft Auto V</div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3>Grand Theft Auto V</h3>
+                        <div class="game-meta">
+                            <span>Action, Adventure</span>
+                            <span>98 GB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-card-image cyberpunk">
+                        <div class="game-version">v2.2 + ALL DLC</div>
+                        <div class="game-title">Cyberpunk 2077</div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3>Cyberpunk 2077</h3>
+                        <div class="game-meta">
+                            <span>RPG, Open World</span>
+                            <span>65 GB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-card-image elden-ring">
+                        <div class="game-version">v1.10 + ALL DLC</div>
+                        <div class="game-title">Elden Ring</div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3>Elden Ring</h3>
+                        <div class="game-meta">
+                            <span>Action RPG, Fantasy</span>
+                            <span>60 GB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="categories">
+            <div class="section-header">
+                <h2>Browse by Category</h2>
+            </div>
+            <div class="category-tabs">
+                <div class="category-tab active">All</div>
+                <div class="category-tab">Action</div>
+                <div class="category-tab">Adventure</div>
+                <div class="category-tab">RPG</div>
+                <div class="category-tab">Strategy</div>
+                <div class="category-tab">Simulation</div>
+                <div class="category-tab">Sports</div>
+                <div class="category-tab">Racing</div>
+                <div class="category-tab">Indie</div>
+            </div>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-card-image red-dead">
+                        <div class="game-version">v1491.50</div>
+                        <div class="game-title">Red Dead Redemption 2</div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3>Red Dead Redemption 2</h3>
+                        <div class="game-meta">
+                            <span>Action, Adventure</span>
+                            <span>120 GB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-card-image fifa">
+                        <div class="game-version">v1.0.113.5491</div>
+                        <div class="game-title">FIFA 23</div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3>FIFA 23</h3>
+                        <div class="game-meta">
+                            <span>Sports, Simulation</span>
+                            <span>45 GB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-card-image cod">
+                        <div class="game-version">v1.0 + Multiplayer</div>
+                        <div class="game-title">Call of Duty: Modern Warfare II</div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3>Call of Duty: Modern Warfare II</h3>
+                        <div class="game-meta">
+                            <span>FPS, Action</span>
+                            <span>72 GB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-card-image witcher">
+                        <div class="game-version">v4.04 + ALL DLC</div>
+                        <div class="game-title">The Witcher 3: Wild Hunt</div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3>The Witcher 3: Wild Hunt</h3>
+                        <div class="game-meta">
+                            <span>RPG, Open World</span>
+                            <span>50 GB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-card-image minecraft">
+                        <div class="game-version">v1.20.4 + Multiplayer</div>
+                        <div class="game-title">Minecraft</div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3>Minecraft</h3>
+                        <div class="game-meta">
+                            <span>Sandbox, Adventure</span>
+                            <span>2 GB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-card-image assassins-creed">
+                        <div class="game-version">v1.7.0 + ALL DLC</div>
+                        <div class="game-title">Assassin's Creed Valhalla</div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3>Assassin's Creed Valhalla</h3>
+                        <div class="game-meta">
+                            <span>Action RPG, Open World</span>
+                            <span>80 GB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>GameRepackHub</h3>
+                <p>Your one-stop destination for pre-installed PC games, ready to play without the hassle of installation.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">New Releases</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Most Popular</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Report a Problem</a></li>
+                    <li><a href="#">Request a Game</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">DMCA Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 GameRepackHub. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

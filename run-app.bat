@@ -1,0 +1,6 @@
+@echo off
+echo Installing dependencies for GameRepackHub...
+call npm install --no-fund --no-audit --loglevel=error
+echo.
+echo Starting GameRepackHub development server...
+npx next dev

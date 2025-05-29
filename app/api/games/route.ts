@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase'
+import { supabase } from '../../../lib/supabase'
 
 class NextResponse {
   static json(data: any, init?: ResponseInit) {

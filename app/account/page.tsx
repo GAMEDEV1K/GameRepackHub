@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from 'react'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../components/ui/tabs'
 import { User, Heart, Download, Settings, LogOut } from 'lucide-react'
-import GameGrid from '@/components/game-grid'
+import GameGrid from '../../components/game-grid'
 
 export default function AccountPage() {
   const [activeTab, setActiveTab] = useState('profile')

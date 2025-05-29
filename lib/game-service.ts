@@ -145,7 +145,7 @@ export async function isGameOwner(gameId: string, userId: string): Promise<boole
 }
 
 // Function to add a new download link
-export async function addDownloadLink(gameId: string, downloadLink: Omit<DownloadLink, 'id'>): Promise<DownloadLink | null> {
+export async function addDownloadLink(gameId: string, downloadLink: Omit<Omit<DownloadLink, 'id'>, 'game_id'> & { game_id?: string | number }): Promise<DownloadLink | null> {
   try {
     // Încearcă să adauge link-ul de descărcare
     const { data, error } = await supabase

@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Download } from 'lucide-react'
-import { supabase } from '@/lib/supabase'
-import { Game } from '@/types/game'
-import { formatBytes } from '@/lib/utils'
+import { supabase } from '../lib/supabase'
+import { Game } from '../types/game'
+import { formatBytes } from '../lib/utils'
 
 interface GameGridProps {
   type: 'latest' | 'popular' | 'all'

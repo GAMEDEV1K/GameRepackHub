@@ -1,9 +1,0 @@
-{
-  "/browse/page": "app/browse/page.js",
-  "/games/[slug]/page": "app/games/[slug]/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/admin/add-game/page": "app/admin/add-game/page.js",
-  "/top-games/page": "app/top-games/page.js",
-  "/page": "app/page.js",
-  "/new-releases/page": "app/new-releases/page.js"
-}

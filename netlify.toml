@@ -1,9 +1,9 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  NODE_VERSION = "18.17.0"
 
 [build.environment]
-  NODE_VERSION = "18.17.0"
   PYTHON_VERSION = "3.9.0"
   RUBY_VERSION = "3.2.2"
   GO_VERSION = "1.21.0"

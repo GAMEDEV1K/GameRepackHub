@@ -4,7 +4,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Download, HardDrive, Monitor, Cpu, Calendar, Star, ArrowLeft as ArrowLeftIcon } from 'lucide-react';
+import { Download, HardDrive, Monitor, Cpu, Calendar, Star, ArrowRight as ArrowLeftIcon } from 'lucide-react';
 import LoadingSpinner from '../../../components/ui/loading-spinner';
 import { formatBytes } from '../../../lib/utils';
 import { supabase } from '../../../lib/supabase-client';
